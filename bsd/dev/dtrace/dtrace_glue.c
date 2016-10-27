@@ -1545,9 +1545,7 @@ strstr(const char *in, const char *str)
     size_t len;
 
     // Trivial empty string case for both in and str
-    if (!in)
-        return (char *)0;
-    else if (!str)
+    if (!in || !str)
         return (const char *) in;
 
     c = *str++;
