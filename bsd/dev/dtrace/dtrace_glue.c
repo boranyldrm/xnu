@@ -1546,7 +1546,7 @@ strstr(const char *in, const char *str)
 
     // Trivial empty string case for both in and str
     if (!in)
-        return 0;
+        return (char *)0;
     else if (!str)
         return (const char *) in;
 
