@@ -1544,9 +1544,13 @@ strstr(const char *in, const char *str)
     char c;
     size_t len;
 
+    // Trivial empty string case for both in and str
+    if (!in)
+        return 0;
+    else if (!str)
+        return (char *) in;
+
     c = *str++;
-    if (!c)
-        return (const char *) in;	// Trivial empty string case
 
     len = strlen(str);
     do {
@@ -1559,7 +1563,7 @@ strstr(const char *in, const char *str)
         } while (sc != c);
     } while (strncmp(in, str, len) != 0);
 
-    return (const char *) (in - 1);
+    return (char *) (in - 1);
 }
 
 /*
