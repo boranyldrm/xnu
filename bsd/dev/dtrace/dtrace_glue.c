@@ -1548,7 +1548,7 @@ strstr(const char *in, const char *str)
     if (!in)
         return 0;
     else if (!str)
-        return (char *) in;
+        return (const char *) in;
 
     c = *str++;
 
@@ -1563,7 +1563,7 @@ strstr(const char *in, const char *str)
         } while (sc != c);
     } while (strncmp(in, str, len) != 0);
 
-    return (char *) (in - 1);
+    return (const char *) (in - 1);
 }
 
 /*
